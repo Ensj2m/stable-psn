@@ -9,17 +9,26 @@ export default function Footer({}: Props) {
   return (
     <div
       className={`
-        w-full bg-red-200 flex flex-row gap-2
+        w-full flex flex-row sm:gap-4 gap-6 sm:justify-start justify-center 
       `}
     >
       <Item>
-        <FaTelegramPlane size={10} />
+        <FaTelegramPlane
+          size={30}
+          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+        />
       </Item>
       <Item>
-        <FaYoutube />
+        <FaYoutube
+          size={30}
+          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+        />
       </Item>
       <Item>
-        <RiInstagramFill />
+        <RiInstagramFill
+          size={30}
+          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+        />
       </Item>
     </div>
   );

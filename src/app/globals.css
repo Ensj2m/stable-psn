@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input:-webkit-autofill {
+  -webkit-appearance: menulist-button;
+  background-image: none !important;
+  background-color: black !important;
+  /* Set background color to black */
+  color: white !important;
+  /* Set text color to white */
+}
+
+input:-moz-autofill {
+  -moz-appearance: menulist-button;
+  background-image: none !important;
+  background-color: black !important;
+  /* Set background color to black */
+  color: white !important;
+  /* Set text color to white */
+}
+
+input:-ms-autofill {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: black !important;
+  /* Set background color to black */
+  color: white !important;
+  /* Set text color to white */
+}

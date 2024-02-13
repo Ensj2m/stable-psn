@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Background() {
   return (
-    <div className="bg-blue-200 absolute top-0 right-0 w-6/12 overflow-hidden h-full">
+    <div className="bg-black absolute bottom-0 right-0 sm:top-0 sm:right-0 w-full md:w-6/12 overflow-hidden h-full">
       <div className="relative w-full h-full">
         <Image
           src="/background.webp"

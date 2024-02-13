@@ -1,42 +1,80 @@
-import Image from "next/image";
-import Footer from "./footer";
+"use client";
 
-export default function Form() {
+import { FormEvent, useState } from "react";
+
+interface Props {}
+
+type ResponseData = {
+  src: string;
+};
+
+export default function Form({}: Props) {
+  const [src, setSrc] = useState<null | string>(null);
+  async function formHandler(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const sku = event.currentTarget.sku.value;
+    const token = event.currentTarget.token.value;
+
+    const formData = {
+      sku,
+      token,
+      region: "ar-AE",
+      add: "Submit",
+    };
+
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const responseData: ResponseData = await response.json();
+        if (responseData.src) {
+          setSrc(responseData.src);
+        }
+        console.log("Request successful");
+      } else {
+        console.error("Error:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
   return (
-    <main className="bg-black flex flex-col h-full w-6/12 absolute left-0 top-0 justify-start items-center p-24">
-      <div className="relative w-full h-4/5 flex flex-col justify-around">
-        <div className="flex flex-col gap-4 w-full ">
-          <Image
-            className="relative"
-            src="/logo.svg"
-            alt="Site Logo"
-            width={90}
-            height={90}
-            priority
+    <>
+      <form
+        onSubmit={formHandler}
+        className="gap-10 sm:gap-8 flex flex-col w-full"
+      >
+        <div className=" relative w-full overflow-hidden rounded-md ring-1 ring-white/20 focus-within:ring-[#D16014]/50 focus-within:ring-2">
+          <input
+            name="sku"
+            placeholder="Avatar ID"
+            className="bg-transparent text-white font-medium appearance-none h-full w-full py-2.5 px-2.5 placeholder-white/40 autofill:bg-transparent"
           />
-          <h1 className="font-bold text-3xl text-white">Abdullah's Services</h1>
+        </div>
+        <div className="relative w-full overflow-hidden rounded-md ring-1 ring-white/20 focus-within:ring-[#D16014]/50 focus-within:ring-2">
+          <input
+            name="token"
+            placeholder="Auth Token (Pdccws_p)"
+            className="bg-transparent text-white font-medium appearance-none h-full w-full py-2.5 px-2.5 placeholder-white/40 autofill-selected:bg-black"
+          />
         </div>
 
-        <form className=" gap-8 flex flex-col bg-black w-full">
-          <div className=" relative w-full overflow-hidden rounded-md ring-1 ring-white/20 focus-within:ring-[#D16014]/50 focus-within:ring-2">
-            <input
-              placeholder="Avatar ID"
-              className="bg-transparent text-white font-medium appearance-none h-full w-full py-2.5 px-2.5 placeholder-white/40"
-            />
-          </div>
-          <div className=" relative w-full overflow-hidden rounded-md ring-1 ring-white/20 focus-within:ring-[#D16014]/50 focus-within:ring-2">
-            <input
-              placeholder="Auth Token (Pdccws_p)"
-              className="bg-transparent text-white font-medium appearance-none h-full w-full py-2.5 px-2.5 placeholder-white/40"
-            />
-          </div>
-
-          <button className="bg-white text-black w-fit px-2.5 py-2 rounded-md">
-            Submit
-          </button>
-        </form>
-      </div>
-      <Footer />
-    </main>
+        <button
+          type="submit"
+          className="mt-2 sm:mt-0 bg-white text-black w-full sm:w-fit px-2.5 py-2 rounded-md"
+        >
+          Submit
+        </button>
+      </form>
+      {src && (
+        <div className="absolute font-bold top-0 right-0 w-full h-full bg-black justify-center items-center flex">
+          {src}
+        </div>
+      )}
+    </>
   );
 }
