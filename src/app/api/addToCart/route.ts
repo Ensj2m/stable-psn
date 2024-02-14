@@ -15,6 +15,9 @@ const headers = {
   Host: "rwfh.me",
 };
 
+const imgSrcRegexPattern =
+  /<img\s+src="http:\/\/apollo2\.dl\.playstation\.net([^"]+)"/;
+
 export async function POST(request: Request) {
   const data: Data = await request.json();
   const { skuID, token, region } = data;
@@ -25,17 +28,28 @@ export async function POST(request: Request) {
   searchParams.append("region", region);
   searchParams.append("add", "Submit");
 
-  axios
-    .post("http://rwfh.me/title.php", searchParams, { headers })
-    .then((response) => {
-      console.log(response.data);
-      return NextResponse.json({
-        data: response.data,
-        headers: response.headers,
-      });
-    })
-    .catch((error) => {
-      console.error(error);
-      return NextResponse.json({ msg: error });
-    });
+  let isAddedToCart: boolean | null = null;
+  let img: string | null = null;
+
+  try {
+    const response = await axios.post(
+      "http://rwfh.me/title.php",
+      searchParams,
+      { headers }
+    );
+    console.log(response.data);
+    const imgSrcMatch = imgSrcRegexPattern.exec(response.data);
+    if (imgSrcMatch) {
+      console.log("IMG src:", imgSrcMatch[1]);
+      isAddedToCart = true;
+      img = imgSrcMatch[1];
+    } else {
+      isAddedToCart = false;
+    }
+  } catch (error) {
+    console.error(error);
+    isAddedToCart = false;
+  }
+
+  return NextResponse.json({ isAddedToCart: isAddedToCart, img: img });
 }

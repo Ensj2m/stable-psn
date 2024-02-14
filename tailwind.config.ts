@@ -13,6 +13,16 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        beating: {
+          "0%": { "backdrop-filter": "blur(0px)" },
+          "50%": { "backdrop-filter": "blur(4px)" },
+          "100%": { "backdrop-filter": "blur(0px)" },
+        },
+      },
+      animation: {
+        "beating-blur": "beating 4s linear infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-debug-screens")],
