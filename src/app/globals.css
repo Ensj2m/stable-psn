@@ -2,29 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-input:-webkit-autofill {
-  -webkit-appearance: menulist-button;
-  background-image: none !important;
-  background-color: black !important;
-  /* Set background color to black */
-  color: white !important;
-  /* Set text color to white */
+option {
+  background-color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-input:-moz-autofill {
-  -moz-appearance: menulist-button;
-  background-image: none !important;
-  background-color: black !important;
-  /* Set background color to black */
-  color: white !important;
-  /* Set text color to white */
+option::-webkit-scrollbar {
+  width: 12px;
+  /* Width of the entire scrollbar */
 }
 
-input:-ms-autofill {
-  appearance: menulist-button;
-  background-image: none !important;
-  background-color: black !important;
-  /* Set background color to black */
-  color: white !important;
-  /* Set text color to white */
+/* Handle */
+option::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Color of the scrollbar handle */
+  border-radius: 6px;
+  /* Rounded corners */
+}
+
+/* Handle on hover */
+option::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+  /* Color of the scrollbar handle on hover */
 }
