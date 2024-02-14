@@ -5,15 +5,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://psn-avatar-tool.vercel.app"),
   title: "Abdullah's Services",
   description: "PSN Avatar Tool",
+  other: {
+    "color-theme": "#000000",
+  },
   openGraph: {
     title: "Abdullah's Services",
     description: "Purchase PSN avatars without needing to use the console",
-    images: "/logo.svg",
-  },
-  other: {
-    "color-theme": "#000000",
+    images: "/logo.png",
   },
 };
 
