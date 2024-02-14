@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Abdullah's Services",
   description: "PSN Avatar Tool",
+  openGraph: {
+    title: "Abdullah's Services",
+    description: "Purchase PSN avatars without needing to use the console",
+    images: "/logo.svg",
+  },
   other: {
     "color-theme": "#000000",
   },
