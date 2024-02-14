@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdullah's Services",
     description: "Purchase PSN avatars without needing to use the console",
-    images: "https://psn-avatar-tool.vercel.app/opengraph.png",
+    images: "https://i.imgur.com/LpMxuuk.png",
   },
   twitter: {
     card: "summary",
-    images: "https://psn-avatar-tool.vercel.app/opengraph.png",
+    images: "https://i.imgur.com/LpMxuuk.png",
     title: "Abdullah's Services",
     description: "Purchase PSN avatars without needing to use the console",
   },
