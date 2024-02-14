@@ -61,9 +61,7 @@ export default function Form() {
         >
           <div className="bg-black aspect-square rounded-3xl overflow-hidden w-[90%] relative">
             <Image
-              src={
-                "http://apollo2.dl.playstation.net/cdn/EP0102/NPEB00342_00/Zgl2CCd5F4fqR8KqCipJvh3EjLksf7DQ.png"
-              }
+              src={avatarSrc}
               className="w-full h-full absolute top-0 left-0"
               alt="Avatar"
               height={200}
