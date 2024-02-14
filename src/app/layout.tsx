@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} debug-screens bg-black`}>
+      <body className={`${inter.className} debug-screen(s) bg-black`}>
         {children}
       </body>
     </html>
