@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdullah's Services",
     description: "Purchase PSN avatars without needing to use the console",
-    images: "/logo.png",
+    images: "/opengraph.png",
   },
 };
 
