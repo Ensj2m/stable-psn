@@ -9,7 +9,7 @@ export default function Form() {
   const [skuIDPlaceholder, setSkuIDPlaceholder] = useState("ID");
   const [tokenPlaceholder, setTokenPlaceholder] = useState("Token");
   const [token, setToken] = useState("");
-  const [region, setRegion] = useState("ar-AE");
+  const [region, setRegion] = useState("ar-SA");
   const [avatarSrc, setAvatarSrc] = useState<null | string>(null);
   const [submitStatus, setSubmitStatus] = useState<
     null | "successful" | "failed"
@@ -57,24 +57,31 @@ export default function Form() {
       {avatarSrc !== null ? (
         <div
           onClick={() => setAvatarSrc(null)}
-          className="bg-black w-full h-full absolute z-50 rounded-3xl overflow-hidden rounded-tl-none flex justify-center items-center py-10 px-6 flex-col gap-10"
+          className="bg-black w-full rounded-3xl h-full absolute z-50 overflow-hidden rounded-tl-none flex justify-center items-center py-10 px-6 flex-col gap-14"
         >
+          <h1 className="font-mono font-bold text-orange-600 text-center text-lg">
+            Successfully added to cart
+          </h1>
           <div className="bg-black aspect-square rounded-3xl overflow-hidden w-[90%] relative">
             <Image
               src={avatarSrc}
-              className="w-full h-full absolute top-0 left-0"
+              className="w-[102%] h-[102%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               alt="Avatar"
               height={200}
               width={200}
             />
           </div>
-          <p className="cursor-pointer pt-2 w-fit pb-1 px-2 bg-orange-600 text-black font-mono rounded-full">
+          <p className="cursor-pointer py-1 w-fit font-black px-3 bg-orange-600 text-black font-mono rounded-full">
             close
           </p>
         </div>
       ) : null}
 
-      <div className="gap-4 sm:gap-8 flex flex-col w-full">
+      <div
+        className={`gap-4 sm:gap-8 flex-col w-full ${
+          avatarSrc === null ? "flex" : "hidden"
+        }`}
+      >
         <div
           className={`relative w-full overflow-hidden rounded-md ring-1 ${
             submitStatus === "failed" ? "ring-red-600/50" : "ring-white/20"
@@ -111,10 +118,10 @@ export default function Form() {
           value={region}
           onChange={handleSelectChange}
         >
-          <option className="bg-black" value="ar-AE">
-            Region (Default: ar-AE)
+          <option className="bg-black" value="ar-SA">
+            Region (Default: ar-SA)
           </option>
-          <option value="ar-SA">ar-SA</option>
+          <option value="ar-AE">ar-AE</option>
           <option value="ar-KW">ar-KW</option>
           <option value="ar-QA">ar-QA</option>
           <option value="ar-OM">ar-OM</option>
