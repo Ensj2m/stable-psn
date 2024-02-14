@@ -228,7 +228,7 @@ export default function Form() {
         </select>
         <button
           onClick={() => handleAddToCart()}
-          className="mt-4 sm:mt-0 bg-white text-black w-full sm:w-fit px-2.5 py-2 rounded-md"
+          className="mt-4 font-bold sm:mt-0 bg-white text-black w-full sm:w-fit px-2.5 py-2 rounded-md"
         >
           Submit
         </button>
