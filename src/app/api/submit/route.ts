@@ -1,4 +1,3 @@
-import { Cheerio } from "cheerio";
 import { NextResponse } from "next/server";
 
 type Submit = {
