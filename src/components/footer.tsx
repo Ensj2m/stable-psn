@@ -12,28 +12,32 @@ export default function Footer({}: Props) {
         w-full flex flex-row sm:gap-4 gap-6 sm:justify-start justify-center 
       `}
     >
-      <Item>
+      <Item href="https://t.me/abdullahservice">
         <FaTelegramPlane
           size={30}
-          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+          className="text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
         />
       </Item>
-      <Item>
+      <Item href="https://youtube.com/@ab6.?si=ibUecGWRi8toEu-O">
         <FaYoutube
           size={30}
-          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+          className="text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
         />
       </Item>
-      <Item>
+      <Item href="https://instagram.com/Ejr2m">
         <RiInstagramFill
           size={30}
-          className="sm:text-white/20 text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
+          className="text-white hover:scale-110 hover:text-white cursor-pointer duration-300"
         />
       </Item>
     </div>
   );
 }
 
-function Item({ children }: { children: ReactNode }) {
-  return <div>{children}</div>;
+function Item({ children, href }: { children: ReactNode; href: string }) {
+  return (
+    <a href={href} target="_blank">
+      {children}
+    </a>
+  );
 }

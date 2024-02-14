@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Abdullah's Services",
   description: "PSN Avatar Tool",
+  other: {
+    "color-theme": "#000000",
+  },
 };
 
 export default function RootLayout({
@@ -16,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} debug-screen(s)`}>{children}</body>
+      <body className={`${inter.className} debug-screen(s) bg-black`}>
+        {children}
+      </body>
     </html>
   );
 }
