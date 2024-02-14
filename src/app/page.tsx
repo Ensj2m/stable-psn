@@ -1,6 +1,5 @@
-import Background from "@/components/background";
-import FormContainer from "@/components/form-container";
-import Image from "next/image";
+import Background from "@/components/containers/background-container";
+import FormContainer from "@/components/containers/form-container";
 
 export default function Home() {
   return (

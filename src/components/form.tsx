@@ -9,38 +9,38 @@ type ResponseData = {
 };
 
 export default function Form({}: Props) {
-  const [src, setSrc] = useState<null | string>(null);
+  // const [src, setSrc] = useState<null | string>(null);
   async function formHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const sku = event.currentTarget.sku.value;
-    const token = event.currentTarget.token.value;
+    // const sku = event.currentTarget.sku.value;
+    // const token = event.currentTarget.token.value;
 
-    const formData = {
-      sku,
-      token,
-      region: "ar-AE",
-      add: "Submit",
-    };
+    // const formData = {
+    //   sku,
+    //   token,
+    //   region: "ar-AE",
+    //   add: "Submit",
+    // };
 
-    try {
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+    // try {
+    //   const response = await fetch("/api/submit", {
+    //     method: "POST",
+    //     body: JSON.stringify(formData),
+    //   });
 
-      if (response.ok) {
-        const responseData: ResponseData = await response.json();
-        if (responseData.src) {
-          setSrc(responseData.src);
-        }
-        console.log("Request successful");
-      } else {
-        console.error("Error:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    //   if (response.ok) {
+    //     const responseData: ResponseData = await response.json();
+    //     if (responseData.src) {
+    //       setSrc(responseData.src);
+    //     }
+    //     console.log("Request successful");
+    //   } else {
+    //     console.error("Error:", response.statusText);
+    //   }
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
   }
   return (
     <>
@@ -70,11 +70,11 @@ export default function Form({}: Props) {
           Submit
         </button>
       </form>
-      {src && (
+      {/* {src && (
         <div className="absolute font-bold top-0 right-0 w-full h-full bg-black justify-center items-center flex">
           {src}
         </div>
-      )}
+      )} */}
     </>
   );
 }

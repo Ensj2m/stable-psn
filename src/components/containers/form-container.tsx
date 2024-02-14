@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Footer from "./footer";
-import Form from "./form";
+import Footer from "../footer";
+import Form from "../form";
 
 export default function FormContainer() {
   return (
@@ -17,7 +17,7 @@ export default function FormContainer() {
               priority
             />
             <h1 className="font-bold text-4xl sm:text-3xl text-white">
-              Abdullah's Services
+              {"Abdullah's Services"}
             </h1>
           </div>
 
